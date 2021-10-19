@@ -1,0 +1,153 @@
+
+!
+version 12.2
+no service pad
+service timestamps debug uptime
+service timestamps log uptime
+no service password-encryption
+!
+hostname ME-3400-SW2
+!
+boot-start-marker
+boot-end-marker
+!
+!
+no aaa new-model
+system mtu routing 1500
+no ip subnet-zero
+!
+!
+!
+no file verify auto
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+!
+!
+vlan internal allocation policy ascending
+!
+!
+!
+interface FastEthernet0/1
+ port-type nni
+!
+interface FastEthernet0/2
+ port-type nni
+!
+interface FastEthernet0/3
+ port-type nni
+!
+interface FastEthernet0/4
+ port-type nni
+!
+interface FastEthernet0/5
+ port-type nni
+!
+interface FastEthernet0/6
+ port-type nni
+!
+interface FastEthernet0/7
+ port-type nni
+!
+interface FastEthernet0/8
+ port-type nni
+!
+interface FastEthernet0/9
+ port-type nni
+!
+interface FastEthernet0/10
+ port-type nni
+!
+interface FastEthernet0/11
+ port-type nni
+!
+interface FastEthernet0/12
+ port-type nni
+!
+interface FastEthernet0/13
+ port-type nni
+!
+interface FastEthernet0/14
+ port-type nni
+!
+interface FastEthernet0/15
+ port-type nni
+!
+interface FastEthernet0/16
+ port-type nni
+!
+interface FastEthernet0/17
+ port-type nni
+!
+interface FastEthernet0/18
+ port-type nni
+!
+interface FastEthernet0/19
+ port-type nni
+!
+interface FastEthernet0/20
+ port-type nni
+!
+interface FastEthernet0/21
+ port-type nni
+!
+interface FastEthernet0/22
+ port-type nni
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+ port-type nni
+!
+interface GigabitEthernet0/2
+ port-type nni
+!
+interface Vlan1
+ ip address 10.10.100.2 255.255.255.0
+ no ip route-cache
+ no ip mroute-cache
+!
+ip default-gateway 10.10.100.1
+ip http server
+ip http secure-server
+ip classless
+!
+!
+banner motd 
+
+=====================================================
+
+              ______            __            
+             / ____/___  ____  / /___  _______
+            / /_  / __ \/ __ \/ __/ / / / ___/
+           / __/ / /_/ / / / / /_/ /_/ (__  ) 
+          /_/    \____/_/ /_/\__/\__, /____/  
+                                /____/        
+
+                    $(hostname)
+=====================================================
+
+             This switch is property of
+                 the ISSD of FHICT.
+ 
+           Unauthorized use is not permitted.
+
+        If you need assistance please go to the
+            nearest computer and google it.
+         You are in IT you can figure it out :)
+
+
+!
+!
+line con 0
+line vty 0 4
+ no login
+line vty 5 15
+ no login
+!
+!
+monitor session 1 source interface Fa0/1 - 22
+monitor session 1 destination interface Fa0/23 - 24
+end
